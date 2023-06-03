@@ -78,6 +78,11 @@
                     <p style="color:cornflowerblue; font-size: 30px; display: inline; margin-left: 100px;"> <b>
                             {{ $userCount }} </b> </p>
                 </div>
+                <div style="margin-top: 10px; margin-left: -24px;" class="rounded-box5">
+                    <p style="font-size: 21px; display: inline;"> Total Captors </p>
+                    <p style="color:cornflowerblue; font-size: 30px; display: inline; margin-left: 80px;"> <b>
+                            {{ $captorCount }} </b> </p>
+                </div>
             </div>
 
 
@@ -124,6 +129,14 @@
                         </p> <br><br>
                     @endforeach
                 </div>
+
+                <div class="add-container" style="margin-top: -40px;">
+                    <a href="{{ route('users.create') }}" class="add-button">
+                        <img class="add-icon" src="{{ url('images/plusplus.png') }}">
+                    </a>
+                    <p style="font-size: 20px; margin-top: 100px;" > &nbsp; Add User </p>
+                </div>
+
             </div>
 
             <div class="rounded-box3">
@@ -142,7 +155,7 @@
                 <div>
                     @foreach ($captoro as $captor)
                         <p class="button-container">
-                            <img style="auto;max-width: none; object-fit: cover; height: 55px; border-radius: 70%; width: 55px;"
+                            <img style="max-width: none; object-fit: cover; height: 55px; border-radius: 70%; width: 55px;"
                                 class="" src="/images/{{ $captor->image }}" alt="{{ $captor->name }}" />
 
                             &nbsp;
@@ -174,13 +187,13 @@
                     @endforeach
                 </div>
 
-
-                <div class="button-container">
+                <div class="add-container" style="margin-top: -40px;">
                     <a href="{{ route('captors.create') }}" class="add-button">
                         <img class="add-icon" src="{{ url('images/plusplus.png') }}">
                     </a>
-                    <p style="font-size: 22px; margin-top: 18px;" > &nbsp; Add a Captor </p>
+                    <p style="font-size: 20px; margin-top: 100px;" > &nbsp; Add Captor </p>
                 </div>
+
 
             </div>
 
@@ -194,11 +207,20 @@
 
 
 
-
+   
     <style>
+
         .button-container {
             display: flex;
             align-items: center;
+           
+        }
+
+        .add-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* height: 100vh; */
         }
 
         .grid-container {
@@ -215,11 +237,19 @@
             width: 300px;
         }
 
+        .rounded-box5 {
+            border-radius: 10px;
+            background-color:rgb(230, 227, 227);
+            padding: 25px;
+            width: 300px;
+        }
+
         .rounded-box1 {
             border-radius: 10px;
             background-color: rgb(255, 255, 255);
             padding: 25px;
             width: 400px;
+            height: 440px;
         }
 
         .rounded-box3 {
@@ -227,12 +257,13 @@
             background-color: rgb(230, 227, 227);
             padding: 25px;
             width: 400px;
+            height: 440px;
         }
 
         .add-icon {
             width: 45px;
             height: 45px;
-            margin-top: 14px;
+            margin-top: 100px;
 
         }
 
@@ -242,6 +273,7 @@
             padding: 25px;
             width: 300px;
             height: 220px;
+           
         }
     </style>
 

@@ -3,8 +3,9 @@
     <style>
         .grid-container {
             display: grid;
-            grid-template-columns: auto auto auto;
-            gap: 1px 1px;
+            grid-template-columns: auto auto ;
+            /* gap: 1px 1px; */
+            grid-row-gap: -20px; 
 
         }
 
@@ -17,14 +18,28 @@
 
         .debox {
             width: 380px;
-            padding: 50px;
+            padding: 10px;
             margin: 10px;
+            margin-left: 40px;
         }
 
         .dehone {
             color: rgb(0, 0, 0);
             font-family: courier;
             font-size: 160%;
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center;
+           
+        }
+        .rounded-box3 {
+            border-radius: 10px;
+            background-color: rgb(230, 227, 227);
+            padding: 25px;
+            width: 500px;
+            height: 240px;
         }
     </style>
 
@@ -50,7 +65,39 @@
             <div class="grid-container">
                 @foreach ($captors as $captor)
                     <div class="debox">
-                        <!-- Picture -->
+
+                        <div class="rounded-box3">
+
+                            <a href="{{ route('captors.show', $captor->id) }}" class="font-medium  text-gray-500  hover:text-gray-700"
+                            style="display: inline; margin-left: 330px;">
+                            View Details
+                            <svg style="display: inline;" class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            </a>
+
+                        <p class="button-container">
+
+                            <img style=" height: 160px; border-radius: 70%; width: 160px; margin-top: 8px; margin-left: -190px;"
+                                class="" src="/images/{{ $captor->image }}" alt="{{ $captor->name }}" />
+
+                            &nbsp;
+
+                            <span
+                                style=" font-family:Prompt, serif; font-size: 28px; margin-top: -15px;">&nbsp;&nbsp;{{ $captor->name }}
+                            </span>
+                            &nbsp;
+
+                            <p style="color:rgb(116, 114, 114); margin-left: 178px; font-size: 15px; margin-top: -81px;">
+                                <span> ID: {{ $captor->IMEI }} </span>
+                            </p>
+
+                        </p></div>
+
+                        {{-- <!-- Picture -->
                         <img src="/images/{{ $captor->image }}" class="imagos" alt="">
                         <h1 class="dehone" style="text-align: center;"> {{ $captor->name }} </h1>
                         <!-- To view captor details -->
@@ -59,7 +106,7 @@
                             @csrf
                             <x-jet-button style="text-align: center;" type="submit" class="ml-4">
                                 {{ __('View More') }}</x-jet-button>
-                        </form>
+                        </form> --}}
                     </div>
                 @endforeach
             </div>

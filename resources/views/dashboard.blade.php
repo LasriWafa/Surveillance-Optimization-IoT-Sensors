@@ -71,7 +71,7 @@
                             <img class="temperature-icon" src="{{ url('images/thermometer.png') }}">
                             <div>
                                 <p style="font-size: 22px; color:rgb(189, 189, 189)"> Temperature </p><br>
-                                <b style="font-size: 40px;"> {{ $lastMesure->temperature }} °C </b>
+                                <b style="color:rgb(255, 99, 132); font-size: 40px;"> {{ $lastMesure->temperature }} °C </b>
                             </div>
                             @else
                                 <p style="font-size: 20px; color:dimgrey; text-align:center;"> No Available Data </p>
@@ -85,7 +85,7 @@
                             <img class="temperature-icon" src="{{ url('images/humidity.png') }}">
                             <div>
                                 <p style="font-size: 22px; color:rgb(189, 189, 189)"> Humidity </p><br>
-                                <b style="font-size: 40px;"> {{ $lastMesure->humidity }} % </b>
+                                <b style="color:rgb(54, 162, 235); font-size: 40px;"> {{ $lastMesure->humidity }} % </b>
                             </div>
                             @else
                                 <p style="font-size: 20px; color:dimgrey; text-align:center;"> No Available Data </p>

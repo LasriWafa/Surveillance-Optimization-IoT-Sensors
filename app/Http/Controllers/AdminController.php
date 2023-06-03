@@ -43,7 +43,8 @@ class AdminController extends Controller
     public function adminGetAllUsers() {
 
         $captoro = Captor::take(3)->get();
-        
+        $captorCount = Captor::count();
+
         $userCount = User::count();
         $useros = User::take(3)->get();
         $users = $this->user->adminGetAllUsers();
@@ -52,6 +53,7 @@ class AdminController extends Controller
                                            'userCount' => $userCount,
                                            'useros' => $useros,
                                            'captoro' => $captoro,
+                                           'captorCount' => $captorCount,
         ]);
     }
 

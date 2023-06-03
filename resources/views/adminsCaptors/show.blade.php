@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Show Captor
+            Show Sensor Details
         </h2>
     </x-slot>
 
@@ -69,8 +69,8 @@
                                         Picture
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $captors->image }}
-                                        <img src="/images/{{ $captors->image }}" class="" alt="">
+                                        {{-- {{ $captors->image }} --}}
+                                        <img style="width:150px ; height: 150px;" src="/images/{{ $captors->image }}" class="" alt="">
                                     </td>
                                 </tr>
                                

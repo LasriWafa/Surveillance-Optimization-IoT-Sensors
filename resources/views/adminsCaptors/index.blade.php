@@ -58,14 +58,14 @@
                 <form class="ml-4" action="{{ route('adminsCaptors.remove') }}" method="POST">
                     @csrf
                     <input type="hidden" name="_method" value="DELETE">
-                    <x-jet-danger-button style="  float: right;"  type="submit" class="ml-4">{{ __('Delete All Captors') }}</x-jet-danger-button>
+                    <x-jet-danger-button style=" margin-top: -70px; float: right;"  type="submit" class="ml-4">{{ __('Delete All Captors') }}</x-jet-danger-button>
                 </form><br>
             </div>
             <br>
 
-            <div class="flex flex-col">
+            <div style=" margin-top: -60px;" class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    {{-- <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"> --}}
                         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                             <table class="min-w-full divide-y divide-gray-200 w-full">
                                 <thead>

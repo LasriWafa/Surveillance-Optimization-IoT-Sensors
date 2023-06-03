@@ -64,7 +64,6 @@
             font-size: 20px;
             margin-left: 10px;
         }
-
     </style>
 
     <x-slot name="header">
@@ -88,22 +87,41 @@
             <div class="grid-item">
                 <p style="font-size: 20px; "> Sensor Image </p>
                 <img src="/images/{{ $captor->image }}" class="imagos" alt=""> <br>
-                {{-- <p style="font-size: 20px; "> Status </p> --}}
-                <div class="rounded-box1">
-                    <p style="font-size: 20px; position: relative; color:rgb(174, 180, 180); left: -100px;"> Status </p>
-                    @if ($captor->status == false)
-                        <div class="offo">
-                            <a href="#" class="button"></a>
-                            <p style="font-size: 20px; "> OFF </p>
-                        </div>
-                    @else
-                    <div class="offo">
-                        <a href="#" class="ONbutton"></a>
-                        <p style="font-size: 20px; "> ON </p>
-                    </div>
-                    @endif
 
-                </div>
+                @if ($lastMesure)
+                    <div class="rounded-box1">
+                        <p style="font-size: 20px; position: relative; color:rgb(174, 180, 180); left: -100px;"> Status
+                        </p>
+                        @if ($captor->status == false)
+                            <div class="offo">
+                                <a href="#" class="button"></a>
+                                <p style="font-size: 20px; "> OFF </p>
+                            </div>
+                        @else
+                            <div class="offo">
+                                <a href="#" class="ONbutton"></a>
+                                <p style="font-size: 20px; "> ON </p>
+                            </div>
+                        @endif
+                    </div>
+                @else
+                    <div class="rounded-box1" style="width: 320px;">
+                        <p style="font-size: 20px; position: relative; color:rgb(174, 180, 180); left: -100px;"> Status
+                        </p>
+                        @if ($captor->status == false)
+                            <div class="offo">
+                                <a href="#" class="button"></a>
+                                <p style="font-size: 20px; "> OFF </p>
+                            </div>
+                        @else
+                            <div class="offo">
+                                <a href="#" class="ONbutton"></a>
+                                <p style="font-size: 20px; "> ON </p>
+                            </div>
+                        @endif
+                    </div>
+
+                @endif
             </div>
 
             <div class="grid-item">
@@ -173,47 +191,88 @@
                 </div>
         </div>
     </div>
-@else
-    <p> <br><br><br><br> No mesures found for this sensor.</p>
+   
     @endif
 
+    @if ($lastMesure)
+        <div style="margin: 60px;">
 
-    <div style="margin: 60px;">
+            <div class="gridos-container">
 
-        <div class="gridos-container">
+                <div>
+                    <form class="ml-4" action="{{ route('captors.edit', $captor->id) }}" method="">
+                        @csrf
+                        <x-jet-button type="submit" class="ml-4">{{ __('Edit Captor') }}</x-jet-button>
+                    </form>
+                </div>
 
-            <div>
-                <form class="ml-4" action="{{ route('captors.edit', $captor->id) }}" method="">
-                    @csrf
-                    <x-jet-button type="submit" class="ml-4">{{ __('Edit Captor') }}</x-jet-button>
-                </form>
+                <div>
+                    <form class="ml-4" action="{{ route('mesures.index', $captor->id) }}" method="">
+                        @csrf
+                        <x-jet-button type="submit" class="ml-4">{{ __('View Captor Data') }}</x-jet-button>
+                    </form>
+                </div>
+
+                <div>
+                    <form class="ml-4" action="{{ route('chart.index', $captor->id) }}" method="get">
+                        @csrf
+                        <x-jet-button type="submit" class="ml-4">{{ __('Visualize Graph') }}</x-jet-button>
+                    </form>
+                </div>
+
+                <div>
+                    <form class="ml-4" action="{{ route('captors.delete', $captor->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <x-jet-danger-button class="ml-3" type="submit">{{ __('Delete Captor') }}
+                        </x-jet-danger-button>
+                    </form>
+                </div>
+
             </div>
-
-            <div>
-                <form class="ml-4" action="{{ route('mesures.index', $captor->id) }}" method="">
-                    @csrf
-                    <x-jet-button type="submit" class="ml-4">{{ __('View Captor Data') }}</x-jet-button>
-                </form>
-            </div>
-
-            <div>
-                <form class="ml-4" action="{{ route('chart.index', $captor->id) }}" method="get">
-                    @csrf
-                    <x-jet-button type="submit" class="ml-4">{{ __('Visualize Graph') }}</x-jet-button>
-                </form>
-            </div>
-
-            <div>
-                <form class="ml-4" action="{{ route('captors.delete', $captor->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <x-jet-danger-button class="ml-3" type="submit">{{ __('Delete Captor') }}</x-jet-danger-button>
-                </form>
-            </div>
-
         </div>
-    </div>
+    @else
+    
+        <div style="margin: 60px;">
 
-    <div style=" padding: 10px; margin: 60px; "> </div>
+            <div
+                style="border-radius: 10px; background-color: rgb(240, 240, 240); padding: 25px; height:300px; width: 300px;">
+
+                <br>
+                <div>
+                    <form class="ml-4" action="{{ route('captors.edit', $captor->id) }}" method="">
+                        @csrf
+                        <x-jet-button type="submit" class="ml-4">{{ __('Edit Captor') }}</x-jet-button>
+                    </form>
+                </div> <br>
+
+                <div>
+                    <form class="ml-4" action="{{ route('mesures.index', $captor->id) }}" method="">
+                        @csrf
+                        <x-jet-button type="submit" class="ml-4">{{ __('View Captor Data') }}</x-jet-button>
+                    </form>
+                </div> <br>
+
+                <div>
+                    <form class="ml-4" action="{{ route('chart.index', $captor->id) }}" method="get">
+                        @csrf
+                        <x-jet-button type="submit" class="ml-4">{{ __('Visualize Graph') }}</x-jet-button>
+                    </form>
+                </div> <br>
+
+                <div>
+                    <form class="ml-4" action="{{ route('captors.delete', $captor->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <x-jet-danger-button class="ml-3" type="submit">{{ __('Delete Captor') }}
+                        </x-jet-danger-button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    @endif
+
+    <div style=" padding: 10px; margin: 30px; "> </div>
 
 </x-app-layout>
