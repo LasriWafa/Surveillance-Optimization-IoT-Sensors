@@ -68,7 +68,11 @@ Route::prefix('captors')->middleware(['auth', 'authCheck'])->group(function () {
     Route::get('/', [CaptorController::class, 'index'])->name('captors.index');
     Route::get('/create', [CaptorController::class, 'create'])->name('captors.create');
     Route::post('/store', [CaptorController::class, 'store'])->name('captors.store');
+
     Route::get('/{id}', [CaptorController::class, 'show'])->name('captors.show');
+
+    Route::post('/captors/{id}/control-sensor', [mesureController::class, 'controlSensor'])->name('control-sensor');
+
     Route::get('/edit/{id}', [CaptorController::class, 'edit'])->name('captors.edit');
     Route::post('/update/{id}', [CaptorController::class, 'update'])->name('captors.update');
     Route::delete('/{id}', [CaptorController::class, 'deleteCaptors'])->name('captors.delete');
@@ -83,3 +87,7 @@ Route::prefix('mesures')->middleware(['auth', 'authCheck'])->group(function () {
 Route::middleware(['auth', 'authCheck'])->group(function () {
     Route::get('/captors/{captorId}/chart', [ChartController::class, 'index'])->name('chart.index');
 });
+
+
+// Route::post('/control-sensor', 'App\Http\Controllers\mesureController@controlSensor')->name('control-sensor');
+

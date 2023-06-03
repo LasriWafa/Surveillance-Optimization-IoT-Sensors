@@ -19,34 +19,59 @@ class mesureController extends Controller
         $mesures = $captor->mesures()->paginate($perPage);
 
         return view('mesures.index', compact('captor', 'mesures'));
-
     }
+
+
+    public function controlSensor(Request $request)
+    {
+        $command = $request->input('command');
+
+        if ($command === 'on') {
+            // Update the sensor status to on
+            $sensor = Captor::first();
+            $sensor->status = true;
+            $sensor->save();
+        } elseif ($command === 'off') {
+            // Update the sensor status to off
+            $sensor = Captor::first();
+            $sensor->status = false;
+            $sensor->save();
+        }
+
+        return redirect()->back()->with('message', 'Command processed successfully');
+    }
+
+
 
     public function store(Request $request)
     {
-        // Access the request data
-        $sensorData = $request->all();
-
-        // Perform validation on the sensor data if needed :  $validatedData
         $sensorData = $request->validate([
             'captor_id' => 'required|integer',
             'temperature' => 'required|numeric',
             'humidity' => 'required|numeric',
         ]);
 
-        // Store the sensor data in the measures table
-        $mesure = new mesure();
-        $mesure->captor_id = $sensorData['captor_id'];
-        $mesure->temperature = $sensorData['temperature'];
-        $mesure->humidity = $sensorData['humidity'];
-        $mesure->save();
+        $sensorStatus = Captor::value('status');
 
-        // Return a response indicating success or failure
-        return response()->json([
-            'message' => 'Sensor data stored successfully',
-            'messure' => $mesure,
-        ], 201);
+        if ($sensorStatus) {
+            $mesure = new Mesure();
+            $mesure->captor_id = $sensorData['captor_id'];
+            $mesure->temperature = $sensorData['temperature'];
+            $mesure->humidity = $sensorData['humidity'];
+            $mesure->save();
+
+            return response()->json([
+                'message' => 'Sensor data stored successfully',
+                'measure' => $mesure,
+            ], 201);
+        } else {
+            return response()->json([
+                'message' => 'Sensor is currently off',
+            ], 200);
+        }
     }
+
+
 
     public function filter(Request $request)
     {
@@ -61,3 +86,6 @@ class mesureController extends Controller
         return view('mesures.index', compact('mesures', 'startDate', 'endDate'));
     }
 }
+
+
+ 

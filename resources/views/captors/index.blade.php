@@ -97,16 +97,7 @@
 
                         </p></div>
 
-                        {{-- <!-- Picture -->
-                        <img src="/images/{{ $captor->image }}" class="imagos" alt="">
-                        <h1 class="dehone" style="text-align: center;"> {{ $captor->name }} </h1>
-                        <!-- To view captor details -->
-                        <form style="text-align: center;" action="{{ route('captors.show', $captor->id) }}"
-                            method="GET">
-                            @csrf
-                            <x-jet-button style="text-align: center;" type="submit" class="ml-4">
-                                {{ __('View More') }}</x-jet-button>
-                        </form> --}}
+                      
                     </div>
                 @endforeach
             </div>

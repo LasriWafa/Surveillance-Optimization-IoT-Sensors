@@ -65,6 +65,28 @@
             margin-left: 10px;
         }
     </style>
+    <style>
+        .onButton {
+            background-color: rgb(68, 204, 68);
+            color: white;
+            border: none;
+            padding: 8px 11px;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+
+        .offButton {
+            background-color: rgb(245, 73, 73);
+            color: white;
+            border: none;
+            padding: 8px 11px;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+    </style>
+
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -81,6 +103,18 @@
                 Go Back
             </a>
         </div>
+
+        {{-- -------------------------------   ON/OFF   --------------------------------------- --}}
+
+        <div style=" text-align: right;  margin-top: -40px;">
+            <form id="sensorForm" method="POST" action="{{ route('control-sensor', $captor->id) }}">
+                @csrf
+                <button class="onButton" type="submit" name="command" value="on">ON</button>
+                <button class="offButton" type="submit" name="command" value="off">OFF</button>
+            </form>
+        </div>
+        <br>
+        {{-- -------------- END OF ON/OFF -------------------------------------------------------- --}}
 
         <div class="grid-container">
 
@@ -191,7 +225,6 @@
                 </div>
         </div>
     </div>
-   
     @endif
 
     @if ($lastMesure)
@@ -232,7 +265,6 @@
             </div>
         </div>
     @else
-    
         <div style="margin: 60px;">
 
             <div
