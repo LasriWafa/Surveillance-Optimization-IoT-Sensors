@@ -2,7 +2,7 @@
     <x-slot name="header">
     
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Captor Data ') }}
+            {{ __('Sensors data page') }}
         </h2>
 
     </x-slot>
@@ -44,7 +44,7 @@
                                         </th>
                                         <th scope="col" width="120"
                                             class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Captor ID
+                                            Sensor ID
                                         </th>
                                         <th scope="col"
                                             class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -95,6 +95,7 @@
                                             </tr>
                                         </tbody>
                                     @endforeach
+                                    
                                 @else
                                     <p>No Mesure Data Available.</p>
                                 @endif

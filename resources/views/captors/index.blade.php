@@ -45,7 +45,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Captors Page') }}
+            {{ __('Sensors main page') }}
         </h2>
     </x-slot>
 
@@ -57,7 +57,7 @@
         @if (count($captors) > 0)
         <form action="{{ route('captors.create') }}" method="GET">
             @csrf
-            <x-jet-button type="submit" class="ml-4">{{ __('Create New Captor') }}</x-jet-button>
+            <x-jet-button type="submit" class="ml-4">{{ __('Create New Sensor') }}</x-jet-button>
         </form>
         @endif
 

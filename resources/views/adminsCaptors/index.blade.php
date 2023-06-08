@@ -33,7 +33,7 @@
                 </x-jet-dropdown-link>
 
                 <x-jet-dropdown-link href="{{ route('adminsCaptors.index') }}">
-                {{ __('Manage Captors') }}
+                {{ __('Manage Sensors') }}
                 </x-jet-dropdown-link>
         
             </x-slot>
@@ -51,14 +51,14 @@
             <div class="block mb-8">
                 <form class="ml-4" action="{{ route('adminsCaptors.create') }}" method="GET">
                     @csrf
-                    <x-jet-button type="submit" class="ml-4">{{ __('Add Captor') }}</x-jet-button>
+                    <x-jet-button type="submit" class="ml-4">{{ __('Add Sensor') }}</x-jet-button>
                 </form>
             </div> <br>
             <div class="block mb-8">
                 <form class="ml-4" action="{{ route('adminsCaptors.remove') }}" method="POST">
                     @csrf
                     <input type="hidden" name="_method" value="DELETE">
-                    <x-jet-danger-button style=" margin-top: -70px; float: right;"  type="submit" class="ml-4">{{ __('Delete All Captors') }}</x-jet-danger-button>
+                    <x-jet-danger-button style=" margin-top: -70px; float: right;"  type="submit" class="ml-4">{{ __('Delete All Sensors') }}</x-jet-danger-button>
                 </form><br>
             </div>
             <br>
@@ -129,15 +129,15 @@
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                         
-                                            <a style="color:rgba(8, 136, 61, 0.815)" href="{{ route('adminsCaptors.show', $captor->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View Captor</a>
+                                            <a style="color:rgba(8, 136, 61, 0.815)" href="{{ route('adminsCaptors.show', $captor->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View Sensor</a>
                                           
                                             
-                                            <a style="color:rgba(8, 21, 136, 0.815)" href="{{ route('adminsCaptors.edit', $captor->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit Captor</a>
+                                            <a style="color:rgba(8, 21, 136, 0.815)" href="{{ route('adminsCaptors.edit', $captor->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit Sensor</a>
                                             <br>
                                             <form class="inline-block" action="{{ route('adminsCaptors.destroy', $captor->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Delete Captor">
+                                                <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Delete Sensor">
                                             </form>
 
                                         </td>

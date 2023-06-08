@@ -22,7 +22,7 @@
             <label for="name"></label>
 
             <div>
-                <x-jet-label for="name" value="{{ __('Captor Name') }}" />
+                <x-jet-label for="name" value="{{ __('Sensor Name') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"
                     required autofocus autocomplete="name" />
             </div>
@@ -142,7 +142,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <x-jet-button class="ml-4">
-                    {{ __('Create Captor') }}
+                    {{ __('Create Sensor') }}
                 </x-jet-button>
             </div>
 

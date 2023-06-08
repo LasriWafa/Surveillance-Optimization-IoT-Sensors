@@ -31,7 +31,7 @@
                 <!-- Navigation Links : CAPTOR-->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link style="color:rgb(146, 146, 146);" href="{{ route('captors.index') }}">
-                        {{ __('Captor Dashboard') }}
+                        {{ __('Sensor Dashboard') }}
                     </x-jet-nav-link>
                 </div>
            

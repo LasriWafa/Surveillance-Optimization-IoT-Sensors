@@ -90,7 +90,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Captor Information') }}
+            {{ __('Sensor details page') }}
         </h2>
     </x-slot>
 
@@ -161,7 +161,7 @@
             <div class="grid-item">
                 <p style="font-size: 20px;"> Sensor Information </p>
                 <div class="rounded-box">
-                    <x-jet-label for="name" value="{{ __('Captor Name :') }}" />
+                    <x-jet-label for="name" value="{{ __('Sensor Name :') }}" />
                     <x-jet-input class="block mt-1 w-full" type="text" value="{{ $captor->name }}" readonly />
                     <x-jet-label for="name" value="{{ __('IMEI :') }}" />
                     <x-jet-input class="block mt-1 w-full" type="text" value="{{ $captor->IMEI }}" readonly />
@@ -235,14 +235,14 @@
                 <div>
                     <form class="ml-4" action="{{ route('captors.edit', $captor->id) }}" method="">
                         @csrf
-                        <x-jet-button type="submit" class="ml-4">{{ __('Edit Captor') }}</x-jet-button>
+                        <x-jet-button type="submit" class="ml-4">{{ __('Edit Sensor') }}</x-jet-button>
                     </form>
                 </div>
 
                 <div>
                     <form class="ml-4" action="{{ route('mesures.index', $captor->id) }}" method="">
                         @csrf
-                        <x-jet-button type="submit" class="ml-4">{{ __('View Captor Data') }}</x-jet-button>
+                        <x-jet-button type="submit" class="ml-4">{{ __('View Sensor Data') }}</x-jet-button>
                     </form>
                 </div>
 
@@ -257,7 +257,7 @@
                     <form class="ml-4" action="{{ route('captors.delete', $captor->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <x-jet-danger-button class="ml-3" type="submit">{{ __('Delete Captor') }}
+                        <x-jet-danger-button class="ml-3" type="submit">{{ __('Delete Sensor') }}
                         </x-jet-danger-button>
                     </form>
                 </div>
@@ -274,14 +274,14 @@
                 <div>
                     <form class="ml-4" action="{{ route('captors.edit', $captor->id) }}" method="">
                         @csrf
-                        <x-jet-button type="submit" class="ml-4">{{ __('Edit Captor') }}</x-jet-button>
+                        <x-jet-button type="submit" class="ml-4">{{ __('Edit Sensor') }}</x-jet-button>
                     </form>
                 </div> <br>
 
                 <div>
                     <form class="ml-4" action="{{ route('mesures.index', $captor->id) }}" method="">
                         @csrf
-                        <x-jet-button type="submit" class="ml-4">{{ __('View Captor Data') }}</x-jet-button>
+                        <x-jet-button type="submit" class="ml-4">{{ __('View Sensor Data') }}</x-jet-button>
                     </form>
                 </div> <br>
 
@@ -296,7 +296,7 @@
                     <form class="ml-4" action="{{ route('captors.delete', $captor->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <x-jet-danger-button class="ml-3" type="submit">{{ __('Delete Captor') }}
+                        <x-jet-danger-button class="ml-3" type="submit">{{ __('Delete Sensor') }}
                         </x-jet-danger-button>
                     </form>
                 </div>

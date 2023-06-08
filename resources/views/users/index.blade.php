@@ -33,7 +33,7 @@
                 </x-jet-dropdown-link>
 
                 <x-jet-dropdown-link href="{{ route('adminsCaptors.index') }}">
-                {{ __('Manage Captors') }}
+                {{ __('Manage Sensors') }}
                 </x-jet-dropdown-link>
         
             </x-slot>

@@ -5,7 +5,7 @@
         </x-slot>
          <br>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Create Captor
+            Create Sensor
         </h2>
          <br>
         <x-jet-validation-errors class="mb-4" />
@@ -46,7 +46,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <x-jet-button class="ml-4">
-                    {{ __('Add Captor') }}
+                    {{ __('Add Sensor') }}
                 </x-jet-button>
             </div>
 

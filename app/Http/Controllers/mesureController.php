@@ -75,14 +75,18 @@ class mesureController extends Controller
 
     public function filter(Request $request)
     {
+
+    
+
         $startDate = $request->input('start_date');
         $endDate = $request->input('end_date');
 
         $startDateTime = $startDate . ' 00:00:00';
         $endDateTime = $endDate . ' 23:59:59';
-
-        $mesures = mesure::whereBetween('created_at', [$startDateTime, $endDateTime])->get();
-
+ 
+        $mesures = mesure::whereBetween('created_at', [$startDateTime, $endDateTime])->paginate(10);
+     
+       
         return view('mesures.index', compact('mesures', 'startDate', 'endDate'));
     }
 }

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Admin Management') }}
+            {{ __('Admin main page') }}
         </h2>
 
         <!-- Settings Dropdown -->
@@ -33,7 +33,7 @@
                     </x-jet-dropdown-link>
 
                     <x-jet-dropdown-link href="{{ route('adminsCaptors.index') }}">
-                        {{ __('Manage Captors') }}
+                        {{ __('Manage Sensors') }}
                     </x-jet-dropdown-link>
 
                 </x-slot>
@@ -79,7 +79,7 @@
                             {{ $userCount }} </b> </p>
                 </div>
                 <div style="margin-top: 10px; margin-left: -24px;" class="rounded-box5">
-                    <p style="font-size: 21px; display: inline;"> Total Captors </p>
+                    <p style="font-size: 21px; display: inline;"> Total Sensors </p>
                     <p style="color:cornflowerblue; font-size: 30px; display: inline; margin-left: 80px;"> <b>
                             {{ $captorCount }} </b> </p>
                 </div>
@@ -140,7 +140,7 @@
             </div>
 
             <div class="rounded-box3">
-                <p style="font-size: 27px; display: inline;"> <b> Captors </b> </p>
+                <p style="font-size: 27px; display: inline;"> <b> Sensors </b> </p>
                 <a href="{{ route('adminsCaptors.index') }}" class="font-medium  text-gray-500  hover:text-gray-700"
                     style="display: inline; margin-left: 150px;">
                     View All
@@ -191,7 +191,7 @@
                     <a href="{{ route('captors.create') }}" class="add-button">
                         <img class="add-icon" src="{{ url('images/plusplus.png') }}">
                     </a>
-                    <p style="font-size: 20px; margin-top: 100px;" > &nbsp; Add Captor </p>
+                    <p style="font-size: 20px; margin-top: 100px;" > &nbsp; Add Sensor </p>
                 </div>
 
 

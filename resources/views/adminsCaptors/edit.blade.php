@@ -5,7 +5,7 @@
         </x-slot>
          <br>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Edit Captor
+            Edit Sensor
         </h2>
          <br>
         <x-jet-validation-errors class="mb-4" />
@@ -43,7 +43,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <x-jet-button class="ml-4">
-                    {{ __('Edit Captor') }}
+                    {{ __('Edit Sensor') }}
                 </x-jet-button>
             </div>
 
